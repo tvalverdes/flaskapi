@@ -7,7 +7,7 @@ import numpy as np
 mensaje = {}
 def hacer_solicitud(url, timeout=15):
     parsed_url = urlparse(url)
-    if not ([parsed_url.scheme, parsed_url.netloc]):
+    if not (parsed_url.scheme and parsed_url.netloc):
         mensaje['id'] = 504
         mensaje['mensaje'] = 'La URL es inválida'
         return mensaje
@@ -24,7 +24,7 @@ def hacer_solicitud(url, timeout=15):
         return mensaje
     except requests.exceptions.RequestException as e:
         mensaje['id'] = 502
-        mensaje['mensaje']='Error en la solicitud', e
+        mensaje['mensaje']='Error en la solicitud por excepción'
         print(e)
         return mensaje
 

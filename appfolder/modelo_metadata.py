@@ -5,12 +5,18 @@ from appfolder.getMeta import *
 from appfolder.obtenerMetadata import *
 import joblib
 
+df= pd.read_csv("appfolder/metadataset.csv")
+nan_count = data.isnull().sum().sum()
+print("Cantidad de valores NaN o nulos en el dataset:", nan_count)
+
 def analisis_modelo(url):
     resultado = analizar_data(url)
     print(resultado)
     if len(resultado) == 2:
         return resultado
     df= pd.read_csv("appfolder/metadataset.csv")
+    nan_count = data.isnull().sum().sum()
+    print("Cantidad de valores NaN o nulos en el dataset:", nan_count)
     data = df.dropna()
     X = data.drop(labels=['result'],axis=1)
     y = data['result'].values
