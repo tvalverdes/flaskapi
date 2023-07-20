@@ -36,7 +36,7 @@ def analizar_data(link):
         response = hacer_solicitud(url, timeout=5)
         if response['id'] == 200:
             nombres_caracteristicas = ['web_indexada','ssl_vigencia','coincide_cn_con_url','obtener_edad_dominio','https_en_url','es_direccion_ip','tiene_sufijo_valido','tiene_redireccion','tiene_arroba_en_url','tiene_formulario_blank','es_favicon_externo','tiene_metadatos']
-            resultados = []
+            resultados = [] 
             resultados.append(web_indexada(url))
             resultados.append(ssl_vigencia(url))
             resultados.append(coincide_cn_con_url(url))
